@@ -1,0 +1,41 @@
+<html>
+
+<head>
+<title>Meme Maker</title>
+	<body>
+		<link rel="stylesheet" type="text/css" href="interface.css" />
+	
+		<div>
+		<p>You have <span id="memeAmount" style="font-size:200%; color:black">0</span> Memes.</p>
+		</div>
+	
+		<div>
+		<button id="meme0" onClick="memeClick(1)" style="color:black; height: 50px" class="storebtn" align="right">Make a Meme</button>
+		</div>
+	
+		<div>
+		<p>You have <span id="meme1amount" style="font-size:200%; color:black">0</span> First World Problems.</p>
+		</div>
+		
+		<div>
+		<button id="meme1" onClick="buymeme1()" style="color:black; height: 50px" class="storebtn">Cost: 10 Memes</button><img src="https://imgflip.com/s/meme/1990s-First-World-Problems.jpg" style="height:50px" align="center">
+		</div>
+		
+		
+		<div>
+		<button id="save" onClick="save()" style="color:black; height: 50px" class="storebtn">Save</button>
+		</div>
+		
+		<div>
+		<button onClick="load()" style="color:black; height: 50px" class="storebtn">Load</button>
+		</div>
+		
+		<div>
+		<button onClick="restart()" style="color:black; height: 50px" class="storebtn">Restart Game</button>
+		</div>
+
+		
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</head>
+</html>
