@@ -1,20 +1,21 @@
 var player = {
-	meme: 0,
+	meme0: 0,
 	meme1: 0
 };
+var defaultStart = player;
 
 function memeClick(number){
-    meme = meme + number;
-	document.getElementById("memeAmount").innerHTML = meme;
+	player.meme0++;
+	document.getElementById("memeAmount").innerHTML = meme0;
 };
 
 function buymeme1(){
 	var meme1cost = 10;
-	if(meme >= meme1cost){
+	if(meme0 >= meme1cost){
 		meme1 = meme1 + 1;
-		meme = meme - 10;
-		document.getElementById('meme1amount').innerHTML = meme1
-		document.getElementById("memeAmount").innerHTML = meme;
+		meme0 = meme0 - 10;
+		document.getElementById("meme1amount").innerHTML = meme1;
+		document.getElementById("memeAmount").innerHTML = meme0;
 	};
 };
 
@@ -44,31 +45,26 @@ function get_cookie(cookie_name){
 
 function load(){
 	var saveGame = get_cookie('memeSave'); 
-	if (!save_data) return;
-    	player = save_data;
-		if (player.meme !== 0) meme = savegame.meme;
-		if (player.ame.meme1 !== 0) meme1 = savegame.mem1;
+		if (!saveGame) return;
+			player = saveGame;
+			if (player.meme0 !== 0) meme0 = savegame.meme;
+			if (player.meme1 !== 0) meme1 = savegame.mem1;
 };
 
 function save(){
 	set_cookie('memeSave', player);
 };
 
-/*
+
 function restart(){
-	var restart = {
-		meme = 0;
-		meme1 = 0;
+	if(confirm("Do you really want to erase all your progress?")){
+	set_cookie('memeSave', defaultStart);
+	load();
 	}
-	localStorage.removeItem("save")
-}
-*/
+};
 
-window.setInterval(function(){
-save();
-}, 10000);
 
-window.setInterval(function(){
+setInterval(function(){
 memeClick(meme1);
 }, 1000);
 
@@ -76,4 +72,10 @@ function init() {
     console.log('init');
 };
 
+
+
+
+
+load();
+setInterval(function () { save(); }, 10000);
 init();
