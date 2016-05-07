@@ -55,8 +55,8 @@ function load()
 	var saveGame = get_cookie('memeSave'); 
 		if (!saveGame) return;
 			player = saveGame;
-			if (player.meme0 !== 0) meme0 = savegame.meme;
-			if (player.meme1 !== 0) meme1 = savegame.mem1;
+			if (player.meme0 !== 0) player.meme0 = savegame.meme;
+			if (player.meme1 !== 0) player.meme1 = savegame.mem1;
 };
 
 function save()
@@ -76,7 +76,7 @@ function restart()
 
 setInterval(function()
 {
-memeClick(meme1);
+memeClick(player.meme1);
 }, 1000);
 
 function init() 
