@@ -1,26 +1,29 @@
 var player = 
 {
-	meme0: 0,
-	meme1: 0,
-	meme1amount: 0,
 	memeAmount: 0,
+	meme1Amount: 0,
 };
 var defaultStart = player;
 
 function memeClick(number)
 {
-	player.meme0++;
-	document.getElementById("memeAmount").innerHTML = meme0;
+	player.memeAmount++;
+	document.getElementById("memeAmount").innerHTML = memeAmount;
 };
 
-function buymeme1()
+function updateMemes() {
+	var element = document.getElementById("memeAmount");
+  element.innerHTML = player.memeAmount;
+}
+
+function buyMeme1()
 {
-	var meme1cost = 10;
-	if(meme0 >= meme1cost){
-		meme1 = meme1 + 1;
-		meme0 = meme0 - 10;
-		document.getElementById("meme1amount").innerHTML = meme1;
-		document.getElementById("memeAmount").innerHTML = meme0;
+	var meme1Cost = 10;
+	if(memeAmount >= meme1cost){
+		meme1++;
+		memeAmount = memeAmount - 10;
+		document.getElementById("meme1Amount").innerHTML = meme1Amount;
+		document.getElementById("memeAmount").innerHTML = memeAmount;
 	};
 };
 
@@ -50,33 +53,35 @@ function get_cookie(cookie_name)
 	return JSON.parse(c_value);
 };
 
-function load()
-{
-	var saveGame = get_cookie('memeSave'); 
-		if (!saveGame) return;
-			player = saveGame;
-			if (player.meme0 !== 0) player.meme0 = savegame.meme;
-			if (player.meme1 !== 0) player.meme1 = savegame.mem1;
-};
-
 function save()
 {
 	set_cookie('memeSave', player);
 };
 
+function load()
+{
+	var saveGame = get_cookie('memeSave'); 
+		if (!saveGame) return;
+			player = saveGame;
+			if (player.memeAmount !== 0) player.memeAmount = savegame.memeAmount;
+			if (player.meme1Amount !== 0) player.meme1Amount = savegame.meme1Amount;
+};
 
 function restart()
 {
-	if(confirm("Do you really want to erase all your progress?")){
+	if(confirm("Do you really want to erase all your progress?"))
+	{
 	set_cookie('memeSave', defaultStart);
 	load();
 	}
 };
 
-
 setInterval(function()
 {
-memeClick(player.meme1);
+	if (meme1Amount >= 1)
+	{
+		memeClick(player.meme1Amount);
+	}
 }, 1000);
 
 function init() 
@@ -85,9 +90,9 @@ function init()
 };
 
 
-
-
-
 load();
-setInterval(function () { save(); }, 10000);
+setInterval(function () 
+	{ 
+	save(); 
+	}, 10000);
 init();
