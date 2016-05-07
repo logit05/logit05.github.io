@@ -1,6 +1,8 @@
 var player = {
 	meme0: 0,
 	meme1: 0
+	meme1amount: 0,
+	memeAmount: 0,
 };
 var defaultStart = player;
 
