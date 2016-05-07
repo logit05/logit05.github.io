@@ -2,6 +2,7 @@ var player =
 {
 	memeAmount: 0,
 	meme1Amount: 0,
+	meme1Cost: 0,
 };
 var defaultStart = player;
 
@@ -12,20 +13,34 @@ function memeClick(number)
 	updateMemes();
 };
 
-function updateMemes() {
+function updateMemes()
+{
 	var element = document.getElementById("memeAmount");
-  element.innerHTML = player.memeAmount;
+	element.innerHTML = player.memeAmount;
+}
+
+function updateMemesOwned() 
+{
+	document.getElementById("meme1Amount").innerHTML = player.meme1Amount;
+	
+}
+
+function updateMemesCosts() 
+{
+	document.getElementById("meme1CostBtn").innerHTML = player.meme1Cost;
+	
 }
 
 function buyMeme1()
 {
-	var meme1Cost = 10;
-	if(player.memeAmount >= meme1Cost)
+	player.meme1Cost = 10 * player.meme1Amount;
+	if(player.memeAmount >= player.meme1Cost)
 	{
 		player.meme1Amount++;
-		player.memeAmount = player.memeAmount - 10;
+		player.memeAmount = player.memeAmount - player.meme1Cost;
 		document.getElementById("meme1Amount").innerHTML = player.meme1Amount;
 		document.getElementById("memeAmount").innerHTML = player.memeAmount;
+		document.getElementById("meme1CostBtn").innerHTML = player.meme1Cost;
 	};
 };
 
@@ -81,6 +96,16 @@ function restart()
 setInterval(function()
 {
 	updateMemes();
+	updateMemesOwned();
+	updateMemesCosts();
+}, 100);
+
+setInterval(function()
+{
+	if (player.meme1Amount > 0)
+	{
+		player.memeAmount = player.memeAmount + player.meme1Amount;
+	}
 }, 1000);
 
 function init() 
