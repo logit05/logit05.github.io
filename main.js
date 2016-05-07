@@ -9,6 +9,7 @@ function memeClick(number)
 {
 	player.memeAmount++;
 	document.getElementById("memeAmount").innerHTML = memeAmount;
+	updateMemes();
 };
 
 function updateMemes() {
@@ -79,10 +80,7 @@ function restart()
 
 setInterval(function()
 {
-	if (meme1Amount >= 1)
-	{
-		memeClick(player.meme1Amount);
-	}
+	updateMemes();
 }, 1000);
 
 function init() 
@@ -92,8 +90,10 @@ function init()
 
 
 load();
-setInterval(function () 
-	{ 
-	save(); 
-	}, 10000);
+
+setInterval(function()
+{
+	save();
+}, 10000);
+
 init();
