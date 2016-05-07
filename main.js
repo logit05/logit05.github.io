@@ -2,7 +2,7 @@ var player =
 {
 	memeAmount: 0,
 	meme1Amount: 0,
-	meme1Cost: 0,
+	meme1Cost: 10,
 };
 var defaultStart = player;
 
@@ -33,15 +33,16 @@ function updateMemesCosts()
 
 function buyMeme1()
 {
-	player.meme1Cost = 10 * player.meme1Amount;
 	if(player.memeAmount >= player.meme1Cost)
 	{
 		player.meme1Amount++;
 		player.memeAmount = player.memeAmount - player.meme1Cost;
+		player.meme1Cost = 10 * player.meme1Amount;
 		document.getElementById("meme1Amount").innerHTML = player.meme1Amount;
 		document.getElementById("memeAmount").innerHTML = player.memeAmount;
 		document.getElementById("meme1CostBtn").innerHTML = player.meme1Cost;
 	};
+	
 };
 
 function set_cookie(cookie_name,value)
@@ -77,6 +78,7 @@ function save()
 
 function load()
 {
+	lastEdited();
 	var saveGame = get_cookie('memeSave'); 
 		if (!saveGame) return;
 			player = saveGame;
@@ -113,6 +115,11 @@ function init()
     console.log('init');
 };
 
+function lastEdited() 
+      {
+      var time = document.lastModified;
+      document.getElementById("time").innerHTML = time;
+      }
 
 load();
 
@@ -121,4 +128,5 @@ setInterval(function()
 	save();
 }, 10000);
 
+ 
 init();
