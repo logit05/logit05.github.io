@@ -4,8 +4,8 @@
 <head>
 <title>Meme Maker</title>
 <meta name="Meme Maker" content="Kappa pride" />
-	<body background ="http://www.dreamtemplate.com/dreamcodes/bg_images/color/c2.jpg">
-		<link rel="stylesheet" type="text/css" href="interface.css" />
+  <link rel="stylesheet" href="bootstrap.min.css" />
+	<body background ="http://www.dreamtemplate.com/dreamcodes/bg_images/color/c2.jpg" style="color: #ffffff">
     <h1 style="text-align:center">
     <img src="http://i.imgur.com/7bDEMpe.png" style="height:200; background-color: #A6A6A6" aling="middle"></img>
     </h1>
@@ -18,55 +18,59 @@
 
 
     <div style="text-align:center">
-		<p>You have <span id="memeAmount" style="font-size:200%; color:black">0</span> Memes.</p>
-		<button id="memeClickerBtn" onClick="memeClick(1)" style="color:black; height:50px"  align="right">Make a Meme</button>
+		<p>You have <span id="memeAmount" style="font-size:200%">0</span> Memes.</p>
+		<button id="memeClickerBtn" onClick="memeClick(1)" style="height:50px"  align="right">Make a Meme</button>
 		</div>
-	
-		
+
+    <pre>
+      
+    </pre>
+    
 		<div>
-		<button id="meme1Btn" class="firstWorld" onClick="buyMeme1()" style="color:black; height: 50px">Cost: <span id="meme1CostBtn">10</span> Memes</button>
-      <img src="https://imgflip.com/s/meme/1990s-First-World-Problems.jpg" class="firstWorld" style="height:50px" align="middle"></img>
-      You have <span id="meme1Amount" class="firstWorld" style="font-size:200%; color:black">0</span> First World Problems producing  <span id="meme1pro" style="font-size:200%">0</span> memes per second.
+		   <button id="meme1Btn" class="firstWorld" onClick="buyMeme1()" style="height: 50px">Cost: <span id="meme1CostBtn">10</span> Memes</button>
+       <img src="https://imgflip.com/s/meme/1990s-First-World-Problems.jpg" class="firstWorld" style="height:50px" align="middle"></img>
+       You have <span id="meme1Amount" class="firstWorld" style="font-size:200%; color: #ffffff">0</span> First World Problems producing  <span id="meme1pro" style="font-size:200%">0</span> memes per second.
+       
     </div>
 
     <div>
-      <button id="meme2Btn" class="patrick" onClick="buyMeme2()" style="color:black; height: 50px">
+      <button id="meme2Btn" class="patrick" onClick="buyMeme2()" style="height: 50px">
         Cost: <span id="meme2CostBtn">10</span> Memes
       </button>
       <img src="https://i.imgflip.com/14fd7k.jpg" class="patrick" style="height:50px" align="middle"></img>
-      You have <span id="meme2Amount" class="patrick" style="font-size:200%; color:black">0</span> Patricks moving bikini bottom producing  <span id="meme2pro" style="font-size:200%">0</span> memes per second.
+      You have <span id="meme2Amount" class="patrick" style="font-size:200%">0</span> Patricks moving bikini bottom producing  <span id="meme2pro" style="font-size:200%">0</span> memes per second.
     </div>
 
     <div>
-      <button id="meme3Btn" class="kingLeo" onClick="buyMeme3()" style="color:black; height: 50px">
+      <button id="meme3Btn" class="kingLeo" onClick="buyMeme3()" style="height: 50px">
         Cost: <span id="meme3CostBtn">10</span> Memes
       </button>
       <img src="https://i.imgflip.com/14fdb6.jpg" class="kingLeo" style="height:50px" align="middle"></img>
-      You have <span id="meme3Amount" class="kingLeo" style="font-size:200%; color:black">0</span> Spartans producing  <span id="meme3pro" style="font-size:200%">0</span> memes per second.
+      You have <span id="meme3Amount" class="kingLeo" style="font-size:200%">0</span> Spartans producing  <span id="meme3pro" style="font-size:200%">0</span> memes per second.
     </div>
 
     <div>
-      <button id="meme4Btn" class="fry" onClick="buyMeme4()" style="color:black; height: 50px">
+      <button id="meme4Btn" class="fry" onClick="buyMeme4()" style="height: 50px">
         Cost: <span id="meme4CostBtn">10</span> Memes
       </button>
       <img src="https://i.imgflip.com/14fd9t.jpg" class="fry" style="height:50px" align="middle"></img>
-      You have <span id="meme4Amount" class="fry" style="font-size:200%; color:black">0</span> Doubting Frys producing  <span id="meme4pro" style="font-size:200%">0</span> memes per second.
+      You have <span id="meme4Amount" class="fry" style="font-size:200%">0</span> Doubting Frys producing  <span id="meme4pro" style="font-size:200%">0</span> memes per second.
     </div>
 
     <div>
-      <button id="meme5Btn" class="hagrid" onClick="buyMeme5()" style="color:black; height: 50px">
+      <button id="meme5Btn" class="hagrid" onClick="buyMeme5()" style="height: 50px">
         Cost: <span id="meme5CostBtn">10</span> Memes
       </button>
       <img src="https://i.imgflip.com/14fd2k.jpg" class="hagrid" style="height:50px" align="middle"></img>
-      You have <span id="meme5Amount" class="hagrid" style="font-size:200%; color:black">0</span> "You're a wizard harry"s producing  <span id="meme5pro" style="font-size:200%">0</span> memes per second.
+      You have <span id="meme5Amount" class="hagrid" style="font-size:200%">0</span> "You're a wizard harry"s producing  <span id="meme5pro" style="font-size:200%">0</span> memes per second.
     </div>
     
 		<div>
-    <button id="saveBtn" onClick="save()" style="color:black; height: 50px " align="right" class="storebtn">Save</button>
+    <button id="saveBtn" onClick="save()" style="height: 50px " align="right" class="storebtn">Save</button>
 		
-    <button id="loadBtn" onClick="load()" style="color:black; height: 50px" class="storebtn">Load</button>
+    <button id="loadBtn" onClick="load()" style="height: 50px" class="storebtn">Load</button>
 		
-    <button id="restartBtn" onClick="restart()" style="color:black; height: 50px" class="storebtn">Restart Game</button>
+    <button id="restartBtn" onClick="restart()" style="height: 50px" class="storebtn">Restart Game</button>
 		</div>
 
     <p>Last updated on</p>
